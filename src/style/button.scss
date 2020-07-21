@@ -31,17 +31,17 @@
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.225);
   }
   // button size
-  &.btn-lg {
+  &.te-button--lg {
     height: 48px;
     line-height: 48px;
   }
-  &.btn-sm {
+  &.te-button--sm {
     height: 30px;
     padding: 0 1rem;
     line-height: 30px;
     font-size: 12px;
   }
-  &.btn-xs {
+  &.te-button--xs {
     height: 24px;
     padding: 0 .4rem;
     line-height: 24px;
@@ -66,23 +66,35 @@
     color: #fff;
     background-color: $success;
   }
+  &.te-button--dark {
+    color: #fff;
+    background-color: $dark;
+  }
+  // disable
+  &.te-button--disabled {
+    cursor: not-allowed;
+    &:hover {
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+    }
+  }
+  // 波纹效果
+  .ripple {
+    display: block;
+    position: absolute;
+    border-radius: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    pointer-events: none;
+  }
+  // 波纹动画
+  .animated {
+    animation: ripple 0.6s linear;
+  }
 }
 .te-button + .te-button {
   margin-left: 10px;
 }
-.te-button .animated {
-  animation: ripple 0.6s linear;
-}
-.te-button .ripple {
-  display: block;
-  position: absolute;
-  border-radius: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  -webkit-transform: scale(0);
-  transform: scale(0);
-  pointer-events: none;
-}
-
 @keyframes ripple {
   100% {
     opacity: 0;
