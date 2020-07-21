@@ -1,22 +1,92 @@
 .te-button {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: stretch;
+  display: inline-block;
   position: relative;
-  outline: 0;
-  border: 0;
-  vertical-align: middle;
-  padding: 0;
+  cursor: pointer;
+  height: 35px;
+  line-height: 35px;
+  padding: 0 1.5rem;
+  color: #424242;
   font-size: $button-font-size;
-  line-height: $button-line-height;
-  text-decoration: none;
-  color: inherit;
-  background: transparent;
   font-weight: $button-font-weight;
-  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: .8px;
   text-align: center;
-  width: auto;
-  height: auto;
-  box-shadow: $button-shadow;
-  padding: 4px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: $button-border-radius;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+  overflow: hidden;
+  &:hover {
+    text-decoration: none;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.225);
+  }
+  // button size
+  &.btn-lg {
+    height: 48px;
+    line-height: 48px;
+  }
+  &.btn-sm {
+    height: 30px;
+    padding: 0 1rem;
+    line-height: 30px;
+    font-size: 12px;
+  }
+  &.btn-xs {
+    height: 24px;
+    padding: 0 .4rem;
+    line-height: 24px;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: .2px;
+  }
+  // button type
+  &.te-button--primary {
+    color: #fff;
+    background-color: $primary;
+  }
+  &.te-button--danger {
+    color: #fff;
+    background-color: $danger;
+  }
+  &.te-button--warning {
+    color: #fff;
+    background-color: $warning;
+  }
+  &.te-button--success {
+    color: #fff;
+    background-color: $success;
+  }
+}
+.te-button + .te-button {
+  margin-left: 10px;
+}
+.te-button .animated {
+  animation: ripple 0.6s linear;
+}
+.te-button .ripple {
+  display: block;
+  position: absolute;
+  border-radius: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2.5);
+    transform: scale(2.5);
+  }
 }

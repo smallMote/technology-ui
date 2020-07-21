@@ -18,6 +18,7 @@ $(document).ready(function () {
     var btn, self, ripple, size, rippleX, rippleY, eWidth, eHeight
 
     btn = $(this).not('[disabled], .disabled')
+    console.log($(this))
 
     btn.on('mousedown', function (e) {
       self = $(this)

@@ -1,6 +1,9 @@
 $space-base: 16px;
 
 $primary: #055bc8;
+$danger: #FF0B97;
+$warning: #F49938;
+$success: #5BCB2A;
 $dark : #000b2b;
 $purple: #5e58e0;
 $shadow-color: $primary;
@@ -8,7 +11,7 @@ $shadow-color: $primary;
 $button-font-size: 14px;
 $button-line-height: 1.715em;
 $button-font-weight: 500;
-$button-border-radius: 3px;
+$button-border-radius: 2px;
 
 $button-shadow: 1px 5px rgba($shadow-color, .2),
                 0 2px 2px rgba($shadow-color, .14),

@@ -2,6 +2,10 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <TeButton>Button</TeButton>
+    <TeButton type="primary">Button</TeButton>
+    <TeButton type="danger">Button</TeButton>
+    <TeButton type="warning">Button</TeButton>
+    <TeButton type="success">Button</TeButton>
   </div>
 </template>
 
