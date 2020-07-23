@@ -3,7 +3,8 @@
       'te-button',
       typeStyle(type),
       sizeStyle(size),
-      { 'te-button--disabled': disabled }
+      { 'te-button--disabled': disabled },
+      { 'is-circle': circle !== undefined }
     ]"
     :type="nativeType"
     :disabled="disabled"
@@ -22,6 +23,7 @@ export default {
     size: String,
     disabled: Boolean,
     loading: Boolean,
+    circle: String,
     nativeType: {
       type: String,
       default: 'button'

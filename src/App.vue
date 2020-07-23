@@ -17,6 +17,13 @@
       <TeButton size="sm">Button</TeButton>
       <TeButton size="xs">Button</TeButton>
     </div>
+    <div class="btn-group btn-type-group">
+      <h1>Button Circle Styles</h1>
+      <TeButton circle size="lg">B</TeButton>
+      <TeButton circle type="primary">B</TeButton>
+      <TeButton circle size="sm" type="danger">B</TeButton>
+      <TeButton circle size="xs" type="warning">B</TeButton>
+    </div>
     <div class="btn-group btn-size-group">
       <h1>Button Disabled Styles</h1>
       <TeButton :disabled="true">Button</TeButton>
