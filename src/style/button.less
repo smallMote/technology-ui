@@ -1,0 +1,156 @@
+@btn-lg-size: 48px;
+@btn-sm-size: 30px;
+@btn-md-size: 35px;
+@btn-xs-size: 24px;
+.t-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  height: 35px;
+  line-height: 35px;
+  padding: 0 1.5rem;
+  color: #424242;
+  font-size: @button-font-size;
+  font-weight: @button-font-weight;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: .8px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: @button-border-radius;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+  overflow: hidden;
+  background-color: transparent;
+  &:hover {
+    text-decoration: none;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.225);
+  }
+  // button size
+  &.t-button--lg {
+    height: @btn-lg-size;
+    line-height: @btn-lg-size;
+  }
+  &.t-button--sm {
+    height: @btn-sm-size;
+    padding: 0 1rem;
+    line-height: @btn-sm-size;
+    font-size: 12px;
+  }
+  &.t-button--xs {
+    height: @btn-xs-size;
+    padding: 0 .4rem;
+    line-height: @btn-xs-size;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: .2px;
+  }
+  // button type
+  // types set
+  @types: {
+    dark: @dark;
+    purple: @purple;
+    danger: @danger;
+    primary: @primary;
+    warning: @warning;
+    success: @success;
+  }
+  each(@types, {
+    &.t-button--@{key} {
+      color: #fff;
+      background-color: @value
+    }
+  });
+  // &.t-button--primary {
+  //   color: #fff;
+  //   background-color: @primary;
+  // }
+  // &.t-button--danger {
+  //   color: #fff;
+  //   background-color: @danger;
+  // }
+  // &.t-button--warning {
+  //   color: #fff;
+  //   background-color: @warning;
+  // }
+  // &.t-button--success {
+  //   color: #fff;
+  //   background-color: @success;
+  // }
+  // &.t-button--dark {
+  //   color: #fff;
+  //   background-color: @dark;
+  // }
+  // &.t-button--purple {
+  //   color: #fff;
+  //   background-color: @purple;
+  // }
+  // disable
+  // disable-mixin
+  .disableBgColor(@bg: transparent) {
+    background-color: fade(@bg, 70%);
+  }
+  &.t-button--disabled {
+    cursor: not-allowed;
+    &:hover {
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+    }
+  }
+  &.t-button--primary.t-button--disabled {
+    .disableBgColor(@primary)
+  }
+  // circle
+  &.is-circle {
+    width: @btn-md-size;
+    height: @btn-md-size;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+    &.t-button--lg {
+      width: @btn-lg-size;
+      height: @btn-lg-size;
+    }
+    &.t-button--sm {
+      width: @btn-sm-size;
+      height: @btn-sm-size;
+    }
+    &.t-button--xs {
+      width: @btn-xs-size;
+      height: @btn-xs-size;
+    }
+  }
+  // 波纹效果
+  .ripple {
+    display: block;
+    position: absolute;
+    border-radius: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    pointer-events: none;
+  }
+  // 波纹动画
+  .animated {
+    animation: ripple 0.6s linear;
+  }
+}
+.t-button + .t-button {
+  margin-left: 10px;
+}
+@keyframes ripple {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2.5);
+    transform: scale(2.5);
+  }
+}

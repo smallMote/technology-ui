@@ -1,4 +1,4 @@
-# technology-ui
+# technologyui
 
 ## Project setup
 ```

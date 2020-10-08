@@ -1,9 +1,10 @@
 <template>
-  <button :class="[
-      'te-button',
+  <button
+    :class="[
+      't-button',
       typeStyle(type),
       sizeStyle(size),
-      { 'te-button--disabled': disabled },
+      { 't-button--disabled': disabled },
       { 'is-circle': circle !== undefined }
     ]"
     :type="nativeType"
@@ -14,10 +15,12 @@
     <span v-on:stop.prevent v-if="$slots.default"><slot></slot></span>
   </button>
 </template>
-<script>
-import $ from 'jquery'
-export default {
-  name: 'TeButton',
+
+<script lang="ts">
+import $ from "jquery"
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: 'TButton',
   props: {
     type: String,
     size: String,
@@ -29,9 +32,9 @@ export default {
       default: 'button'
     }
   },
-  setup (props, ctx) {
+  setup(props, ctx) {
     // 点击监听
-    function handleClick (e) {
+    function handleClick (e: any) {
       if (props.disabled) return
       ctx.emit('click', e)
     }
@@ -42,54 +45,57 @@ export default {
       handleMousedown
     }
   }
-}
-// 按钮类型样式
-function typeStyle (type) {
-  const typeMaven = ['primary', 'danger', 'warning', 'success', 'dark']
-  let typeStyles = ''
+})
+
+// 类型className
+function typeStyle(type: string): string {
+  const typeMaven: Array<string> = ['primary', 'danger', 'warning', 'success', 'dark', 'purple']
+  let typeStyles: string = ''
   if (type && typeMaven.includes(type)) {
-    typeStyles = `te-button--${type}`
+    typeStyles = `t-button--${type}`
   }
   return typeStyles
 }
-// 按钮大小样式
-function sizeStyle (size) {
-  const sizeMaven = ['lg', 'sm', 'xs']
-  let sizeStyle = ''
+
+// 大小className
+function sizeStyle(size: string): string {
+  const sizeMaven: Array<string> = ['lg', 'sm', 'xs']
+  let sizeStyle: string = ''
   if (size && sizeMaven.includes(size)) {
-    sizeStyle = `te-button--${size}`
+    sizeStyle = `t-button--${size}`
   }
   return sizeStyle
 }
-// 鼠标点击事件监听
-let timer = null
-function handleMousedown (e) {
+
+// 鼠标按压监听
+let timer: undefined | number = undefined
+function handleMousedown(e: any) {
   e.preventDefault()
   if (timer) {
     clearTimeout(timer)
   }
-  let self = $(e.target)
-  if (self[0].nodeName !== 'BUTTON' || !self.hasClass('te-button')) {
+  let self: any = $(e.target)
+  if (self[0].nodeName !== 'BUTTON' || !self.hasClass('t-button')) {
     // self = $(e.target.parentNode)
-    self = self.parents('button.te-button')
+    self = self.parents('button.t-button')
   }
-  let ripple = null
-  let eWidth = 0
-  let eHeight = 0
+  // let ripple = null
+  let eWidth: number = 0
+  let eHeight: number = 0
   let size = 0
   let rippleX = 0
   let rippleY = 0
   if (self.find('.ripple').length === 0) {
     self.prepend('<span class="ripple"></span>')
   }
-  ripple = self.find('.ripple')
+  let ripple = self.find('.ripple')
   ripple.removeClass('animated')
-  eWidth = self.outerWidth()
-  eHeight = self.outerHeight()
+  eWidth = self.outerWidth() || 0
+  eHeight = self.outerHeight() || 0
   size = Math.max(eWidth, eHeight)
   ripple.css({ width: size, height: size })
-  rippleX = parseInt(e.pageX - self.offset().left) - (size / 2)
-  rippleY = parseInt(e.pageY - self.offset().top) - (size / 2)
+  rippleX = parseInt((e.pageX - self.offset().left) + '') - (size / 2)
+  rippleY = parseInt((e.pageY - self.offset().top) + '') - (size / 2)
 
   ripple.css({ top: rippleY + 'px', left: rippleX + 'px' }).addClass('animated')
 

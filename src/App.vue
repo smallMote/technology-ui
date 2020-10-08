@@ -1,59 +1,46 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <div class="btn-group btn-type-group">
-      <h1>Button Type Styles</h1>
-      <TeButton>Button</TeButton>
-      <TeButton type="primary">Button</TeButton>
-      <TeButton type="danger">Button</TeButton>
-      <TeButton type="warning">Button</TeButton>
-      <TeButton type="success">Button</TeButton>
-      <TeButton type="dark">Button</TeButton>
-    </div>
-    <div class="btn-group btn-size-group">
-      <h1>Button Size Styles</h1>
-      <TeButton size="lg">Button</TeButton>
-      <TeButton>Button</TeButton>
-      <TeButton size="sm">Button</TeButton>
-      <TeButton size="xs">Button</TeButton>
-    </div>
-    <div class="btn-group btn-type-group">
-      <h1>Button Circle Styles</h1>
-      <TeButton circle size="lg">B</TeButton>
-      <TeButton circle type="primary">B</TeButton>
-      <TeButton circle size="sm" type="danger">B</TeButton>
-      <TeButton circle size="xs" type="warning">B</TeButton>
-    </div>
-    <div class="btn-group btn-size-group">
-      <h1>Button Disabled Styles</h1>
-      <TeButton :disabled="true">Button</TeButton>
-    </div>
+  <div class="btn-group btn-type-group">
+    <h1>Button Type Styles</h1>
+    <t-button>Button</t-button>
+    <t-button type="primary">Button</t-button>
+    <t-button type="danger">Button</t-button>
+    <t-button type="warning">Button</t-button>
+    <t-button type="success">Button</t-button>
+    <t-button type="dark">Button</t-button>
+    <t-button type="purple">Button</t-button>
+  </div>
+  <div class="btn-group btn-size-group">
+    <h1>Button Size Styles</h1>
+    <t-button size="lg">Button</t-button>
+    <t-button type="primary">Button</t-button>
+    <t-button size="sm" type="danger">Button</t-button>
+    <t-button size="xs" type="warning">Button</t-button>
+  </div>
+  <div class="btn-group btn-type-group">
+    <h1>Button Circle Styles</h1>
+    <t-button circle size="lg">B</t-button>
+    <t-button circle type="primary">B</t-button>
+    <t-button circle size="sm" type="danger">B</t-button>
+    <t-button circle size="xs" type="warning">B</t-button>
+    <t-button circle type="purple" size="lg">B</t-button>
+  </div>
+  <div class="btn-group btn-size-group">
+    <h1>Button Disabled Styles</h1>
+    <t-button :disabled="true">Button</t-button>
+    <t-button :disabled="true" type="primary">Button</t-button>
+    <t-button :disabled="true" type="danger">Button</t-button>
+    <t-button :disabled="true" type="warning">Button</t-button>
+    <t-button :disabled="true" type="success">Button</t-button>
+    <t-button :disabled="true" type="dark">Button</t-button>
   </div>
 </template>
 
-<script>
-import TeButton from './components/Button'
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'App',
   components: {
-    TeButton
   }
-}
+});
 </script>
-
-<style lang="scss">
-#app {
-  font-family: sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  /*color: #2c3e50;*/
-  margin-top: 60px;
-}
-.btn-group {
-  margin-bottom: $space-base;
-  /*display: flex;*/
-  /*align-items: flex-end;*/
-}
-</style>
